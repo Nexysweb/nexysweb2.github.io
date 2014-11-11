@@ -214,7 +214,7 @@ $("form#contactForm").submit(function(){
     
     var datastr = $(this).serialize()
 
-    $.ajax('/contact', {
+    $.ajax('http://nexys.ch/contact', {
         dataType: 'json',
         data: datastr,
         method: 'POST',
