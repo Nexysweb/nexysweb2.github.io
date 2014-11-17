@@ -40,12 +40,6 @@
           <div id="message-error" class="alert alert-danger" style="display: none;">
             <strong>Error!</strong> Please fill-in all required fields.
            </div>
- 
-            
-
-
-
-
 
 <dl class=" " id="name_field">
     <dt><label for="name">Name</label></dt>
@@ -58,12 +52,6 @@
     
 </dl>
 
-            
-
-
-
-
-
 <dl class=" " id="email_field">
     <dt><label for="email">Email</label></dt>
     <dd>
@@ -75,12 +63,6 @@
     
 </dl>
 
-            
-
-
-
-
-
 <dl class=" " id="comment_field">
     <dt><label for="comment">Comment</label></dt>
     <dd>
@@ -91,9 +73,6 @@
         <dd class="info">Required</dd>
     
 </dl>
-
-
-
         </div>
 
      </div>
@@ -105,6 +84,86 @@
    </div><!-- /.modal-content -->
  </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
+
+
+<!-- Modal -->
+<div class="modal fade" id="legalModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+ <div class="modal-dialog">
+   <div class="modal-content">
+    <form id="contactForm" method="post" action="/contact">
+     <div class="modal-header">
+       <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+       <h4 class="modal-title">Legal</h4>
+     </div>
+     <div class="modal-body">
+     <div class="row">
+     <div class="col-md-4">
+     	<h4>Address</h4>
+     	<p>
+			Nexys Sàrl<br>
+			Route du stand 6<br>
+			1260 Nyon<br>
+			Switzerland
+     	</p>
+     </div>
+
+     <div class="col-md-4">
+     	<h4>Contact</h4>
+     	<ul class="list-unstyled">
+     		<li>General Information:</li>
+     		<li><a href="mailto: info@nexys.ch">info@nexys.ch</a></li>
+     		<li>Billing:</li>
+     		<li><a href="mailto: bill@nexys.ch">bill@nexys.ch</a></li>
+     	</ul>
+     </div>
+
+     <div class="col-md-4">
+     	<ul class="list-inline text-center">
+     		<li><a href="http://www.rc2.vd.ch/registres/hrcintapp-pub/externalCompanyReport.action?companyOfrcId13=CH-550-1142208-6&ofrcLanguage=2">
+     		<span class="fa fa-stack fa-2x">
+				<i class="fa fa-circle fa-stack-2x"></i>
+				<i class="fa fa-info fa-inverse fa-stack-1x"></i>
+     		</span>
+     		</a></li>
+
+     		<li><a href="https://github.com/Nexysweb/">
+     		<span class="fa fa-stack fa-2x">
+				<i class="fa fa-circle fa-stack-2x"></i>
+     			<i class="fa fa-github fa-inverse fa-stack-1x"></i>
+     		</span>
+     		</a></li>
+     		
+     		<li><a href="https://www.linkedin.com/company/5336720">
+			<span class="fa fa-stack fa-2x">
+				<i class="fa fa-circle fa-stack-2x"></i>
+				<i class="fa fa-linkedin fa-inverse fa-stack-1x"></i>
+			</span>
+     		</a></li>
+     		
+     		<li>
+     		<a href="skype: johan.boissard">
+     		<span class="fa fa-stack fa-2x">
+				<i class="fa fa-circle fa-stack-2x"></i>
+				<i class="fa fa-skype fa-inverse fa-stack-1x"></i>
+			</span>
+     		</a></li>
+     	</ul>
+     </div>
+
+
+     </div>
+		
+    
+</dl>
+     </div>
+     <div class="modal-footer">
+       <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>       
+     </div>
+     </form>
+   </div><!-- /.modal-content -->
+ </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
 
     <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
         <div class="container">
@@ -132,6 +191,10 @@
                     </li>
                     <li class="page-scroll">
                         <a href="#contact">Contact</a>
+                    </li>
+
+                    <li class="page-scroll">
+                        <a data-toggle="modal" href="#legalModal">Legal</a>
                     </li>
                 </ul>
             </div>
