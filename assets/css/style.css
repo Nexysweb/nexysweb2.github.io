@@ -118,6 +118,9 @@ a:focus {
 .intro-body {
   display: table-cell;
   vertical-align: middle;
+  text-transform: uppercase;
+  font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 600;
 }
 .brand-heading {
   font-size: 40px;
