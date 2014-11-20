@@ -100,11 +100,19 @@
      <div class="col-md-4">
      	<h4>Address</h4>
      	<ul class="list-unstyled">
+<<<<<<< HEAD
 			<li>Nexys Sàrl</li>
 			<li>Route du stand 6</li>
 			<li>1260 Nyon</li>
 			<li>Switzerland</li>
      	</p>
+=======
+		<li>Nexys Sàrl</li>
+		<li>Route du stand 6</li>
+		<li>1260 Nyon</li>
+		<li>Switzerland</li>
+     	</ul>
+>>>>>>> d929b8152a6500436d7a2e0aa49e495cc358c707
      </div>
 
      <div class="col-md-4">
@@ -119,7 +127,7 @@
 
      <div class="col-md-4">
      	<ul class="list-inline text-center">
-     		<li><a href="http://www.rc2.vd.ch/registres/hrcintapp-pub/externalCompanyReport.action?companyOfrcId13=CH-550-1142208-6&ofrcLanguage=2">
+     		<li><a href="http://www.rc2.vd.ch/registres/hrcintapp-pub/externalCompanyReport.action?companyOfrcId13=CH-550-1142208-6&ofrcLanguage=4">
      		<span class="fa fa-stack fa-2x">
 				<i class="fa fa-circle fa-stack-2x"></i>
 				<i class="fa fa-info fa-inverse fa-stack-1x"></i>
@@ -141,7 +149,7 @@
      		</a></li>
      		
      		<li>
-     		<a href="skype: johan.boissard">
+     		<a href="callto: johan.boissard">
      		<span class="fa fa-stack fa-2x">
 				<i class="fa fa-circle fa-stack-2x"></i>
 				<i class="fa fa-skype fa-inverse fa-stack-1x"></i>
@@ -242,7 +250,7 @@
 
                     <p>We use cutting-edge web-technology that allows fast, efficient and safe development. Our <a href="http://en.wikipedia.org/wiki/Agile_software_development">agile</a> approach to web-development allows us to better listen to our clients and create finely customer-tailored products.</p>
                     
-                    <p>When the choice is ours, we particularly enjoy working with <a href="http://scala-lang.org/">Scala</a> along with the <a href="http://playframework.com/">Play Framework</a>.</p>
+                    <p>When the choice is ours, we particularly enjoy working with <a href="http://scala-lang.org/">Scala</a> along with the <a href="http://playframework.com/">Play! Framework</a>.</p>
 
                 </div>
 
@@ -317,7 +325,7 @@ $("form#contactForm").submit(function(){
     
     var datastr = $(this).serialize()
 
-    $.ajax('http://nexys.ch/contact', {
+    $.ajax('http://nexys2.nine.ch:9004/contact', {
         dataType: 'json',
         data: datastr,
         method: 'POST',
