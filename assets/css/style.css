@@ -205,21 +205,27 @@ a:focus {
   padding-top: 100px;
 }
 
-.technology-section {
-  /*background: url("../img/intro-bg.jpg") no-repeat center center scroll;
-  
+#about{
 
-  background-origin: padding-box;
-  background-color: #000000;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  background-size: cover;
-  -o-background-size: cover;*/
+  background-image: url("../img/patterns/blackorchid.png");
+  background-attachment: fixed;
+  background-repeat: repeat;
+}
+
+#technology {
+  background-image: url("../img/patterns/wild_oliva.png");
+  background-attachment: fixed;
+  background-repeat: repeat;
+}
+
+#contact{
 
   background-image: url("../img/patterns/stressed_linen.png");
   background-attachment: fixed;
   background-repeat: repeat;
 }
+
+
 #map {
   width: 100%;
   height: 200px;
