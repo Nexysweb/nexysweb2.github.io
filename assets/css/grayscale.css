@@ -206,14 +206,19 @@ a:focus {
 }
 
 .technology-section {
-  //background: url("../img/intro-bg.jpg") no-repeat center center scroll;
-  background: url("../img/patterns/stressed_linen.png") no-repeat center center scroll;
+  /*background: url("../img/intro-bg.jpg") no-repeat center center scroll;
+  
+
   background-origin: padding-box;
   background-color: #000000;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   background-size: cover;
-  -o-background-size: cover;
+  -o-background-size: cover;*/
+
+  background-image: url("../img/patterns/stressed_linen.png");
+  background-attachment: fixed;
+  background-repeat: repeat;
 }
 #map {
   width: 100%;
