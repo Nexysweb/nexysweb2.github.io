@@ -211,6 +211,15 @@ app.controller('standardVarCtrl', ['$scope', '$http', '$filter', function($scope
 }])
 
 
+app.controller('qualityAssuranceCtrl', ['$scope', '$http', '$filter', function($scope, $http, $filter) {
+ 
+$scope.values = [
+	{name: "favicon generated", resource: "tags.icon"},
+	{name: "no script", resource: "tags.noscript"}
+]
+}])
+
+
 </script>
 
 </body>
