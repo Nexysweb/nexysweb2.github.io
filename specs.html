@@ -155,17 +155,24 @@ footer {
 <div id="container" ng-controller="scalaCtrl" ng-show="nav==5">
 
 
-<h2>Who uses Scala?</h2>
+<h2>Built with Scala</h2>
 <p>Here is a non echaustive of companies and websites that use Scala.</p>
 <table class="table table-striped table-hover">
 <tr>
-<th>Name</th><th>Framework</th><th>Resource</th><th>OpenSource</th>
+<th>Name</th><th>Framework</th><th>OpenSource</th>
 </tr>
 
 <tr ng-repeat="item in values">
 <td>{{item.name}}</td>
-<td><span ng-repeat="f in item.framework"><span ng-repeat="e in frameworks | filter:{id: f}:true" class="label label-default">{{e.name}}</span> </span></td>
-<td><a ng-repeat="l in item.resource" class="btn btn-default" href="{{l}}"><span class="glyphicon glyphicon-link"></span></a></td>
+<td>
+	<span ng-repeat="f in item.framework">
+		<a target="_blank" ng-href="{{f.href}}">
+			<span ng-repeat="e in frameworks | filter:{id: f.f}:true" class="label label-default">
+				{{e.name}}
+			</span>
+		</a>
+	</span>
+</td>
 <td><span ng-class="{'glyphicon glyphicon-ok': item.opensource, 'glyphicon glyphicon-remove': !item.opensource}"></span></td>
 </tr>
 
@@ -194,7 +201,7 @@ app.controller('mainCtrl', ['$scope', '$http', '$filter', function($scope, $http
 		{name: "Specifications", nav: 2},
     	{name: "Standard Variables", nav: 3},
     	{name: "Quality Assurance", nav: 4},
-    	{name: "Who uses Scala", nav: 5},
+    	{name: "Built with Scala", nav: 5},
 	]
 }])
 
@@ -256,35 +263,40 @@ app.controller('scalaCtrl', ['$scope', '$http', '$filter', function($scope, $htt
 $scope.frameworks = [
 	{id: 1, name: "Play! Framework"},
 	{id: 2, name: "Scalatra"},
-	{id: 3, name: "Lyft"}
+	{id: 3, name: "Lift"}
 ]
 
 
 $scope.values = [
-	{name: "Linkedin", framework: [1, 2], resource: []},
-	{name: "Coursera", framework: [1], resource: []},
-	{name: "Twitter", framework: [1], resource: []},
-	{name: "The Guardian", framework: [1, 2], resource: []},
-	{name: "UBS", framework: [], resource: []},
-	{name: "McLaren applied technologies", framework: [1,2], resource: []},
-	{name: "Property Partner", framework: [1], resource: []},
-	{name: "Verizon", framework: [1], resource: []},
-	{name: "JP Morgan", framework: [1], resource: []},
-	{name: "Foursquare", framework: [1], resource: []},
-	{name: "BBC", framework: [2], resource: ["http://scalatra.org/community/built-with.html"]},
-	{name: "Box.com", framework: [2], resource: ["http://scalatra.org/community/built-with.html"]},
-	{name: "ChaCha", framework: [2], resource: ["http://scalatra.org/community/built-with.html"]},
-	{name: "Chronotrack", framework: [2], resource: ["http://scalatra.org/community/built-with.html"]},
-	{name: "IGN", framework: [2], resource: ["http://scalatra.org/community/built-with.html"]},
-	{name: "Janrain", framework: [2], resource: ["http://scalatra.org/community/built-with.html"]},
-	{name: "Learndot", framework: [2], resource: ["http://scalatra.org/community/built-with.html"]},
-	{name: "Netflix", framework: [2], resource: ["http://scalatra.org/community/built-with.html"]},
-	{name: "TrademarkNow", framework: [2], resource: ["http://scalatra.org/community/built-with.html"]},
-	{name: "Fink", framework: [2], resource: ["http://scalatra.org/community/built-with.html"], opensource: true},
-	{name: "Newsrdr", framework: [2], resource: ["http://scalatra.org/community/built-with.html"], opensource: true},
-	{name: "Objectify", framework: [2], resource: ["http://scalatra.org/community/built-with.html"], opensource: true},
-	{name: "Scalatra Toys", framework: [2], resource: ["http://scalatra.org/community/built-with.html"], opensource: true},
-	{name: "Skinny Framework", framework: [2], resource: ["http://scalatra.org/community/built-with.html"], opensource: true},
+	{name: "Linkedin", framework: [{f: 1},{f: 2}]},
+	{name: "Coursera", framework: [{f: 1}]},
+	{name: "Twitter", framework: [{f: 1}]},
+	{name: "The Guardian", framework: [{f: 1},{f: 2}]},
+	{name: "UBS", framework: []},
+	{name: "McLaren applied technologies", framework: [{f: 1},{f: 2}]},
+	{name: "Property Partner", framework: [{f: 1}]},
+	{name: "Klout", framework: [{f: 1, l: "https://www.playframework.com/"}]},
+	{name: "Gily", framework: [{f: 1, l: "https://www.playframework.com/"}]},
+	{name: "ZapTravel", framework: [{f: 1, l: "https://www.playframework.com/"}]},
+	{name: "Verizon", framework: [{f: 1}]},
+	{name: "Typesafe", framework: [{f: 1, l:"http://zengularity.com/projects"}]},
+	{name: "JP Morgan", framework: [{f: 1}]},
+	{name: "Foursquare", framework: [{f: 1}]},
+	{name: "Walmart", framework: [{f: 1, l:"http://www.nurun.com/en/news/nurun-launches-redesigned-transactional-platform-with-walmart-canada/"}]},
+	{name: "BBC", framework: [{f: 2, href: "http://scalatra.org/community/built-with.html"}]},
+	{name: "Box.com", framework: [{f: 2, href: "http://scalatra.org/community/built-with.html"}]},
+	{name: "ChaCha", framework: [{f: 2, href: "http://scalatra.org/community/built-with.html"}]},
+	{name: "Chronotrack", framework: [{f: 2, href: "http://scalatra.org/community/built-with.html"}]},
+	{name: "IGN", framework: [{f: 2, href: "http://scalatra.org/community/built-with.html"}]},
+	{name: "Janrain", framework: [{f: 2, href: "http://scalatra.org/community/built-with.html"}]},
+	{name: "Learndot", framework: [{f: 2, href: "http://scalatra.org/community/built-with.html"}]},
+	{name: "Netflix", framework: [{f: 2, href: "http://scalatra.org/community/built-with.html"}]},
+	{name: "TrademarkNow", framework: [{f: 2, href: "http://scalatra.org/community/built-with.html"}]},
+	{name: "Fink", framework: [{f: 2, href: "http://scalatra.org/community/built-with.html"}], opensource: true},
+	{name: "Newsrdr", framework: [{f: 2, href: "http://scalatra.org/community/built-with.html"}], opensource: true},
+	{name: "Objectify", framework: [{f: 2, href: "http://scalatra.org/community/built-with.html"}], opensource: true},
+	{name: "Scalatra Toys", framework: [{f: 2, href: "http://scalatra.org/community/built-with.html"}], opensource: true},
+	{name: "Skinny Framework", framework: [{f: 2, href: "http://scalatra.org/community/built-with.html"}], opensource: true},
 
 ]
 }])
