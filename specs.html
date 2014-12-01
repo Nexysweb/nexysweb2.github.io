@@ -263,7 +263,8 @@ app.controller('scalaCtrl', ['$scope', '$http', '$filter', function($scope, $htt
 $scope.frameworks = [
 	{id: 1, name: "Play! Framework"},
 	{id: 2, name: "Scalatra"},
-	{id: 3, name: "Lift"}
+	{id: 3, name: "Lift"},
+	{id: 4, name: "Scala language"}
 ]
 
 
@@ -272,7 +273,10 @@ $scope.values = [
 	{name: "Coursera", framework: [{f: 1}]},
 	{name: "Twitter", framework: [{f: 1}]},
 	{name: "The Guardian", framework: [{f: 1},{f: 2}]},
-	{name: "UBS", framework: []},
+	{name: "UBS", framework: [{f: 4, l:"http://www.scala-lang.org/old/node/10923"}]},
+	{name: "Credit Suisse", framework: [{f: 4, l:"http://www.scala-lang.org/old/node/10923"}]},
+	{name: "HSBC", framework: [{f: 4, l:"http://www.scala-lang.org/old/node/10923"}]},
+	{name: "Trafigura", framework: [{f: 4, l:"http://www.scala-lang.org/old/node/10923"}]},
 	{name: "McLaren applied technologies", framework: [{f: 1},{f: 2}]},
 	{name: "Property Partner", framework: [{f: 1}]},
 	{name: "Klout", framework: [{f: 1, l: "https://www.playframework.com/"}]},
@@ -280,7 +284,7 @@ $scope.values = [
 	{name: "ZapTravel", framework: [{f: 1, l: "https://www.playframework.com/"}]},
 	{name: "Verizon", framework: [{f: 1}]},
 	{name: "Typesafe", framework: [{f: 1, l:"http://zengularity.com/projects"}]},
-	{name: "JP Morgan", framework: [{f: 1}]},
+	{name: "Morgan Stanley", framework: [{f: 4, l:"http://www.scala-lang.org/old/node/10923"}]},
 	{name: "Foursquare", framework: [{f: 1}]},
 	{name: "Walmart", framework: [{f: 1, l:"http://www.nurun.com/en/news/nurun-launches-redesigned-transactional-platform-with-walmart-canada/"}]},
 	{name: "BBC", framework: [{f: 2, href: "http://scalatra.org/community/built-with.html"}]},
