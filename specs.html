@@ -166,7 +166,7 @@ footer {
 <td>{{item.name}}</td>
 <td>
 	<span ng-repeat="f in item.framework">
-		<a target="_blank" href="{{f.href}}">
+		<a target="_blank" ng-href="{{f.href}}">
 			<span ng-repeat="e in frameworks | filter:{id: f.f}:true" class="label label-default">
 				{{e.name}}
 			</span>
