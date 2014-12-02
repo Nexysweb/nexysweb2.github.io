@@ -191,7 +191,9 @@ footer {
 
 <table class="table table-striped">
 <tr ng-repeat="l in links">
-	<td><a ng-href="{{l.href}}">{{l.name}}</a></td>
+	<td>{{l.name}}</td>
+	<td>{{l.journal}}</td>
+	<td><a ng-href="{{l.href}}" class="btn btn-default"><span class="glyphicon glyphicon-link"></span></a></td>
 </tr>
 </table>
 
