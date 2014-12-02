@@ -291,8 +291,8 @@ $scope.frameworks = [
 $scope.values = [
 	{name: "Linkedin", framework: [{f: 1},{f: 2}]},
 	{name: "Coursera", framework: [{f: 1}]},
-	{name: "Twitter", framework: [{f: 1}]},
-	{name: "The Guardian", framework: [{f: 1},{f: 2}]},
+	{name: "Twitter", framework: [{f: 4, l: "http://www.scala-lang.org/old/node/1658"}]},
+	{name: "The Guardian", framework: [{f: 1},{f: 2}, {f: 4, l: "http://www.scala-lang.org/old/node/1658"}]},
 	{name: "UBS", framework: [{f: 4, l:"http://www.scala-lang.org/old/node/10923"}]},
 	{name: "Credit Suisse", framework: [{f: 4, l:"http://www.scala-lang.org/old/node/10923"}]},
 	{name: "HSBC", framework: [{f: 4, l:"http://www.scala-lang.org/old/node/10923"}]},
@@ -306,7 +306,7 @@ $scope.values = [
 	{name: "Verizon", framework: [{f: 1}]},
 	{name: "Typesafe", framework: [{f: 1, l:"http://zengularity.com/projects"}]},
 	{name: "Morgan Stanley", framework: [{f: 4, l:"http://www.scala-lang.org/old/node/10923"}]},
-	{name: "Foursquare", framework: [{f: 3}]},
+	{name: "Foursquare", framework: [{f: 3}, {f: 4, l: "http://www.scala-lang.org/old/node/1658"}]},
 	{name: "Walmart", framework: [{f: 1, l:"http://www.nurun.com/en/news/nurun-launches-redesigned-transactional-platform-with-walmart-canada/"}]},
 	{name: "BBC", framework: [{f: 2, l: "http://scalatra.org/community/built-with.html"}]},
 	{name: "Box.com", framework: [{f: 2, l: "http://scalatra.org/community/built-with.html"}]},
@@ -322,16 +322,31 @@ $scope.values = [
 	{name: "Objectify", framework: [{f: 2, l: "http://scalatra.org/community/built-with.html"}], opensource: true},
 	{name: "Scalatra Toys", framework: [{f: 2, l: "http://scalatra.org/community/built-with.html"}], opensource: true},
 	{name: "Skinny Framework", framework: [{f: 2, l: "http://scalatra.org/community/built-with.html"}], opensource: true},
+	{name: "Electricite de France Trading", framework: [{f: 4, l: "http://www.scala-lang.org/old/node/1658"}]},
+	{name: "Novell", framework: [{f: 4, l: "http://www.scala-lang.org/old/node/1658"}]},
+	{name: "Xebia", href: "http://www.xebia.com/", framework: [{f: 4, l: "http://www.scala-lang.org/old/node/1658"}]},
+	{name: "Xerox", href: "http://www.xmpie.com/" , framework: [{f: 4, l: "http://www.scala-lang.org/old/node/1658"}]},
+	{name: "Sony", href: "https://www.it-solutions.siemens.com/b2b/it/en/global/press/press-releases/2009/Pages/enterprise-social-messaging-experiment.aspx" , framework: [{f: 4, l: "http://www.scala-lang.org/old/node/1658"}]},
+	{name: "Siemens" , framework: [{f: 4, l: "http://www.scala-lang.org/old/node/1658"}]},
+	{name: "Thatcham" , framework: [{f: 4, l: "http://www.scala-lang.org/old/node/1658"}]},
+	{name: "OPOWER" , framework: [{f: 4, l: "http://www.scala-lang.org/old/node/1658"}]},
+	{name: "GridGain" , framework: [{f: 4, l: "http://www.scala-lang.org/old/node/1658"}]},
+	{name: "AppJet" , framework: [{f: 4, l: "http://www.scala-lang.org/old/node/1658"}]},
+	{name: "Reaktor" , framework: [{f: 4, l: "http://www.scala-lang.org/old/node/1658"}]},
+
 
 ]
 
 $scope.links = [
-{name: "eFinancial Career", href: "http://news.efinancialcareers.com/uk-en/100268/smart-java-developers-need-to-skill-up-in-scala/"},
-{name: "Forbes", href: "http://www.forbes.com/sites/quora/2014/07/10/what-do-you-think-about-the-scala-programming-language/"},
+{name: "Smart Java developers need to skill-up in Scala", journal: "eFinancial Career", href: "http://news.efinancialcareers.com/uk-en/100268/smart-java-developers-need-to-skill-up-in-scala/"},
+{name: "What Do You Think About The Scala Programming Language? Answer by Mathew de Detrich, Senior Software Developer at Monetise Pty Ltd, on Quora" , journal: "Forbes/Quora", href: "http://www.forbes.com/sites/quora/2014/07/10/what-do-you-think-about-the-scala-programming-language/"},
 {name: "Functional programming's high efficiency comes at a cost", href: "http://www.infoworld.com/article/2843393/application-development/functional-programming-tradeoffs-efficiency-learning-curve.html"},
 {name: "9 cutting-edge programming languages worth learning now", journal: "infoWorld", href: "http://www.infoworld.com/article/2840235/application-development/9-cutting-edge-programming-languages-worth-learning-next.html"},
 {name: "A Large Scale Study of Programming Languages and Code Quality in Github", journal: "UC Davis", href: "http://macbeth.cs.ucdavis.edu/lang_study.pdf"},
-{name: "How The New York Times uses reactive programming tools like Scala to scale", journal: "TechRepublic", href: "http://www.techrepublic.com/article/how-the-new-york-times-uses-reactive-programming-tools-like-scala-to-scale/"}
+{name: "How The New York Times uses reactive programming tools like Scala to scale", journal: "TechRepublic", href: "http://www.techrepublic.com/article/how-the-new-york-times-uses-reactive-programming-tools-like-scala-to-scale/"},
+{name: "Java And Scala: Former Competitors May Be BFFs Before Long (Martin Odersky)", journal: "ReadWrite", href: "http://readwrite.com/2014/02/20/java-8-scala-competitors-bffs-martin-odersky"},
+{name: "The future of programming is Scala", journal: "EPFL", href: "http://actu.epfl.ch/news/the-future-of-programming-is-scala-2/"},
+{name: "Who is using Scala?", journal: "Alvin Alexander Blog", href: "http://alvinalexander.com/scala/whos-using-scala-akka-play-framework"}
 ]
 
 }])
