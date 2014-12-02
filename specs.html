@@ -165,14 +165,14 @@ footer {
 </table>
 
 <h2>Built with Scala</h2>
-<p>Here is a non echaustive of companies and websites that use Scala.</p>
+<p>Here is a non exhaustive list of companies and websites that use Scala.</p>
 <table class="table table-striped table-hover">
 <tr>
 <th>Name</th><th>Framework</th><th>OpenSource</th>
 </tr>
 
 <tr ng-repeat="item in values">
-<td><a ng-href="{{item.href}}"><span class="glyphicon glyphicon-link"></span></a> {{item.name}}</td>
+<td>{{item.name}} <a ng-show="{{item.href}}" ng-href="{{item.href}}"><span class="glyphicon glyphicon-link"></span></a></td>
 <td>
 	<span ng-repeat="f in item.framework">
 		<a target="_blank" ng-href="{{f.l}}">
@@ -283,7 +283,7 @@ app.controller('scalaCtrl', ['$scope', '$http', '$filter', function($scope, $htt
 $scope.frameworks = [
 	{id: 1, name: "Play! Framework", href: "http://playframework.com"},
 	{id: 2, name: "Scalatra", href: "http://scalatra.org"},
-	{id: 3, name: "Lift", href: "liftweb.net"},
+	{id: 3, name: "Lift", href: "http://liftweb.net"},
 	{id: 4, name: "Scala language", href: "http://scala-lang.org"}
 ]
 
