@@ -172,7 +172,7 @@ footer {
 </tr>
 
 <tr ng-repeat="item in values">
-<td>{{item.name}}</td>
+<td><a ng-href="{{item.href}}"><span class="glyphicon glyphicon-link"></span></a> {{item.name}}</td>
 <td>
 	<span ng-repeat="f in item.framework">
 		<a target="_blank" ng-href="{{f.l}}">
