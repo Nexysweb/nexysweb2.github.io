@@ -177,6 +177,15 @@ footer {
 </tr>
 
 </table>
+
+<h2>Some interesting articles</h2>
+
+<table class="table table-striped">
+<tr ng-repeat="l in links">
+	<td><a ng-href="{{l.href}}">{{l.name}}</a></td>
+</tr>
+</table>
+
 </div>
 
 <footer>
@@ -303,6 +312,9 @@ $scope.values = [
 	{name: "Skinny Framework", framework: [{f: 2, l: "http://scalatra.org/community/built-with.html"}], opensource: true},
 
 ]
+
+$scope.links = [
+{name: "eFinancial Career", href: "http://news.efinancialcareers.com/uk-en/100268/smart-java-developers-need-to-skill-up-in-scala/"}]
 }])
 
 
