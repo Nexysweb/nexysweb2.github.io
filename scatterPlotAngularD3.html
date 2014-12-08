@@ -31,9 +31,13 @@
     	}
 
 
-    	.circle{
-    		fill: #101010;
+    	.circle{	
+    		stroke: black;
+    		stroke-width:1;
+    		opacity:0.5
     	}
+
+
     	.axis path,
 		.axis line {
 			fill: none;
@@ -47,7 +51,7 @@
 		}
 
 
-		update{
+		.update{
 			fill: red;
 		}
     </style>
@@ -68,11 +72,13 @@
 <th>x</th>
 <th>y</th>
 <th></th>
+<th></th>
 </tr>
 
 <tr ng-repeat="item in values">
-<td><input class="form-control input-sm" type="number" ng-model="item.x" placeholder="x"></td>
-<td><input class="form-control input-sm" type="number" ng-model="item.y" placeholder="y"></td>
+<td><input class="form-control input-sm" type="number" step="any" ng-model="item.x" placeholder="x"></td>
+<td><input class="form-control input-sm" type="number" step="any" ng-model="item.y" placeholder="y"></td>
+<td><input class="form-control input-sm" type="checkbox" ng-model="item.b" placeholder="y"></td>
 <td><a class="btn btn-danger btn-sm" ng-click="remove()"><span class="glyphicon glyphicon-remove"></span></a></td>
 </tr>
 </table>
@@ -163,8 +169,12 @@ function newData(a){
 		.attr("cy", function(d) {
 			return yScale(d.y);
 		})
-		.attr("class", "circle")
-		.attr("r", 3)
+		.attr("class", "circle update")
+		//.attr("class", "update")
+		.attr("r", function(d){
+			return 3
+		})
+		
 }
 
 
@@ -227,8 +237,8 @@ $scope.add = function(){
 }
 
 $scope.values = [
-	{x: 1, y: 5},
-	{x: 2, y: 3},
+	{x: 1, y: 5, b: true},
+	{x: 2, y: 3, b: true},
 	{x: 3, y: 6},
 	{x: 4, y: 5}
 ]
