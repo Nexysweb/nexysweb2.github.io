@@ -1,5 +1,15 @@
+ 
+
  <!DOCTYPE html>
 <html lang="en">
+
+<!-- 
+	source:
+	http://alignedleft.com/tutorials/d3/making-a-scatterplot
+	http://blog.visual.ly/creating-animations-and-transitions-with-d3-js/
+	http://bl.ocks.org/mbostock/3808218
+	http://swizec.com/blog/quick-scatterplot-tutorial-for-d3-js/swizec/5337
+-->
 
 <head>
     <meta charset="utf-8">
@@ -41,30 +51,36 @@
 <body ng-app="myApp" ng-controller="MainCtrl">
 
 
-<div class="row">
-<div class="col-md-6 col-md-offset-3">
-<div class="well text-center" id="chart"></div>
-</div>
-</div>
+<h1>Scatter Plot + Update</h1>
 
 
 <div class="row">
-<div class="col-md-6 col-md-offset-3">
+<div class="col-md-6">
+
+<form ng-submit="draw()">
 <table class="table table-striped">
 <tr>
 <th>x</th>
 <th>y</th>
+<th></th>
 </tr>
 
 <tr ng-repeat="item in values">
 <td><input class="form-control input-sm" type="number" ng-model="item.x" placeholder="x"></td>
 <td><input class="form-control input-sm" type="number" ng-model="item.y" placeholder="y"></td>
+<td><a class="btn btn-danger" ng-click="remove()"><span class="glyphicon glyphicon-remove"></span></a></td>
 </tr>
 </table>
+
 <p>
-<a class="btn btn-primary" ng-click="add()"><span class="glyphicon glyphicon-plus"></span></a>
-<a class="btn btn-warning" ng-click="draw()"><span class="glyphicon glyphicon-pencil"></span></a>
+<button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-pencil"></span></button>
+<a class="btn btn-info" ng-click="add()"><span class="glyphicon glyphicon-plus"></span></a>
 </p>
+</form>
+</div>
+
+<div class="col-md-6">
+<div class="well text-center" id="chart"></div>
 </div>
 </div>
 
@@ -150,9 +166,14 @@ function update(data) {
 	yScale.domain([0, d3.max(data, function(d) { return d.y; })]);
 
 	// join data
-	svg.selectAll("circle")
+	var a = svg.selectAll("circle")
 		.data(data)
-		.transition()
+
+		// delete old elements
+		a.exit().remove()
+
+		// update elements
+		a.transition()
 		.duration(1000)		
 		.attr("cx", function(d) {
 			return xScale(d.x);
@@ -160,6 +181,22 @@ function update(data) {
 		.attr("cy", function(d) {
 			return yScale(d.y);
 		});
+
+		// new elements
+		a
+		.enter()
+		.append("circle")
+		.attr("cx", function(d) {
+			return xScale(d.x);
+		})
+		.attr("cy", function(d) {
+			return yScale(d.y);
+		})
+		.attr("r", 3)
+		
+		
+
+
 
 
 	//Update X axis
@@ -173,6 +210,8 @@ function update(data) {
 		.transition()
 		.duration(1000)
 		.call(yAxis);
+
+
 }
 	
 	
@@ -198,6 +237,11 @@ $scope.draw = function(){
 	console.log($scope.values)
 	update($scope.values)
 }
+
+$scope.remove = function(idx){
+	$scope.values.splice(idx,1)
+}
+
 
 }])
 </script>
