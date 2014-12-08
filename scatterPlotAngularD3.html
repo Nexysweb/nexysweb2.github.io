@@ -96,6 +96,7 @@
 <p>
 <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-pencil"></span></button>
 <a class="btn btn-info" ng-click="add()"><span class="glyphicon glyphicon-plus"></span></a>
+<a class="btn btn-default" ng-click="liney()"><span class="glyphicon glyphicon-asterisk"></span></a>
 </p>
 </form>
 </div>
@@ -144,6 +145,21 @@ var b = svg.selectAll("circle")
 	.data(data)
 
 newData(b)
+
+
+// add line
+var lineFunction = d3.svg.line()
+	.x(function(d) { return xScale(d.x) })
+	.y(function(d) { return yScale(d.y) })
+	.interpolate("linear");
+
+var c = svg.selectAll("path")
+	.data([])
+	.append("path")
+	.attr("d", function(d){
+		lineFunction(lineData)
+	})
+	.attr("class", "line");
 
 	
 
@@ -208,9 +224,6 @@ function update(data, lineData) {
 	var a = svg.selectAll("circle")
 		.data(data)
 
-		// delete old elements
-		a.exit().remove()
-
 		// update elements
 		a.transition()
 		.duration(1000)		
@@ -222,10 +235,23 @@ function update(data, lineData) {
 		})
 		.attr("class", function(d){ return changeColor(d)})
 
+		// delete old elements
+		a.exit().remove()
+
 		// new elements
 		newData(a)	
 		
 
+	var b = svg.selectAll("path").data(lineData)
+
+
+	//b.transition()
+	//.duration(1000)
+
+	b.enter()
+	.append("path")
+	.attr("d", function(d){console.log(d);return d.x})
+	.attr("class", "line");
 
 
 
@@ -243,16 +269,13 @@ function update(data, lineData) {
 
 
 
-	// add line
-	var lineFunction = d3.svg.line()
-		.x(function(d) { return xScale(d.x) })
-		.y(function(d) { return yScale(d.y) })
-		.interpolate("linear");
+	
 
-	var lineGraph = svg.append("path")
+	/*var lineGraph = svg
+		.append("path")
 		.attr("d", lineFunction(lineData))
 		.attr("class", "line");
-
+*/
 
 }
 	
@@ -286,6 +309,15 @@ $scope.draw = function(){
 
 $scope.remove = function(idx){
 	$scope.values.splice(idx,1)
+}
+
+$scope.liney = function(){
+	$scope.line = [
+		{x: 0, y: 2},
+		{x: 1, y: 5}
+	]
+
+	$scope.draw()
 }
 
 
