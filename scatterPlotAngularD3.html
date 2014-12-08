@@ -1,0 +1,163 @@
+ <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Scatter Plot</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
+
+
+    <style>
+
+    	body{
+    		padding: 15px;
+    	}
+    	.axis path,
+		.axis line {
+			fill: none;
+			stroke: black;
+			shape-rendering: crispEdges;
+		}
+
+		.axis text {
+			font-family: sans-serif;
+			font-size: 11px;
+		}
+    </style>
+</head>
+
+<body ng-app="myApp" ng-controller="MainCtrl">
+
+{{values}}
+
+<div class="row">
+<div class="col-md-6 col-md-offset-3">
+<div class="well text-center" id="chart"></div>
+</div>
+</div>
+
+
+<div class="row">
+<div class="col-md-6 col-md-offset-3">
+<table class="table table-striped">
+<tr>
+<th>x</th>
+<th>y</th>
+</tr>
+
+<tr ng-repeat="item in values">
+<td><input class="form-control input-sm" type="number" ng-model="item.x" placeholder="x"></td>
+<td><input class="form-control input-sm" type="number" ng-model="item.y" placeholder="y"></td>
+</tr>
+</table>
+<p>
+<a class="btn btn-primary" ng-click="add()"><span class="glyphicon glyphicon-plus"></span></a>
+<a class="btn btn-warning" ng-click="draw()"><span class="glyphicon glyphicon-pencil"></span></a>
+</p>
+</div>
+</div>
+
+
+<script src="bower_components/angular/angular.min.js"></script>
+<script src="bower_components/d3/d3.min.js"></script>
+<script>
+
+
+
+// init
+
+var w = 500
+var h = 300
+var padding = 30
+
+//Create SVG element
+var svg = 
+	d3.select("#chart")
+	.append("svg")
+	.attr("width", w)
+	.attr("height", h)
+
+// end init
+
+function draw(data){
+	svg.selectAll("*").remove()   
+	//scales
+	var xScale = d3.scale.linear()
+			.domain([0, d3.max(data, function(d) { return d.x; })])
+			.range([padding, w - padding])
+
+	var yScale = d3.scale.linear()
+			.domain([0, d3.max(data, function(d) { return d.y; })])
+			.range([h - padding, padding]);
+
+
+	svg.selectAll("circle")
+		.data(data)
+		.enter()
+		.append("circle")
+		.attr("cx", function(d) {
+			return xScale(d.x);
+		})
+		.attr("cy", function(d) {
+			return yScale(d.y);
+		})
+		.attr("r", 3)
+
+	//axis
+	var xAxis = d3.svg.axis()
+		.scale(xScale)
+		.orient("bottom");
+
+	var yAxis = d3.svg.axis()
+		.scale(yScale)
+		.orient("left")
+		.ticks(5);
+
+
+	svg.append("g")
+		.attr("class", "axis")
+		.attr("transform", "translate(0," + (h - padding) + ")")
+		.call(xAxis)
+
+	svg.append("g")
+		.attr("class", "axis")
+		.attr("transform", "translate(" + padding + ",0)")
+		.call(yAxis)
+	// end axis
+}
+	
+	
+
+
+
+var app = angular.module('myApp', [])
+
+app.controller('MainCtrl', ['$scope', '$http', '$filter', function($scope, $http, $filter) {
+
+$scope.add = function(){
+	$scope.values.push({})
+}
+
+$scope.values = [
+	{x: 1, y: 5},
+	{x: 2, y: 3},
+	{x: 3, y: 6},
+	{x: 4, y: 5}
+]
+
+$scope.draw = function(){
+	console.log($scope.values)
+	draw($scope.values)
+}
+
+}])
+</script>
+</body>
+</html>
