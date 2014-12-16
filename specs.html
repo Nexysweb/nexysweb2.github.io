@@ -120,6 +120,59 @@ footer {
 <li ng-repeat="item in values | filter:{type_id: 4}">{{item.description}}</li>
 </ul>
 
+
+<h1>Misc</h1>
+
+      <p>Welcome to the lunchlottery wiki!</p>
+
+<h2>
+<a id="user-content-database-schemes" class="anchor" href="#database-schemes" aria-hidden="true"><span class="octicon octicon-link"></span></a>Database schemes</h2>
+
+<p>The scheme is saved in
+<code>/conf/evolution/default/schema.sql</code></p>
+
+<p>new additions should be added a new file in the same repo e.g. <code>/conf/evolutions/default/JB.sql</code>.</p>
+
+<p><strong>DB updates are performed manually (no <strong>evolution</strong> enabled)</strong></p>
+
+<h2>
+<a id="user-content-assets" class="anchor" href="#assets" aria-hidden="true"><span class="octicon octicon-link"></span></a>Assets</h2>
+
+<p>asset files (not compiled) are in <code>/public</code> and can be accessed via <code>/assets/</code></p>
+
+<p>LESS files are in <code>/app/assets</code> and <strong>overwrite</strong> files that are in <code>/public</code>.</p>
+
+<h3>
+<a id="user-content-js" class="anchor" href="#js" aria-hidden="true"><span class="octicon octicon-link"></span></a>JS</h3>
+
+<p>Bower is preferred when it comes to use Library and files are saved in <code>/public/bower_components</code></p>
+
+<h2>
+<a id="user-content-config" class="anchor" href="#config" aria-hidden="true"><span class="octicon octicon-link"></span></a>Config</h2>
+
+<h3>
+<a id="user-content-front-end" class="anchor" href="#front-end" aria-hidden="true"><span class="octicon octicon-link"></span></a>Front End</h3>
+
+<p>AngularJS: Different versions of angular are used ... The version used in bower is to be preferred.
+Bootstrap: the file in from bower is to be preferred.
+Template system Twirl.</p>
+
+<p>Whenever possible (99% of the cases) routes are referenced dynamically with the help of @routes.MyCtrl.myMethod(). The list of routes are in <code>conf/routes</code>.</p>
+
+<h3>
+<a id="user-content-backend" class="anchor" href="#backend" aria-hidden="true"><span class="octicon octicon-link"></span></a>Backend</h3>
+
+<p>The framework is Play 2.1.3 for Scala.</p>
+
+<h3>
+<a id="user-content-launch-script" class="anchor" href="#launch-script" aria-hidden="true"><span class="octicon octicon-link"></span></a>Launch script</h3>
+
+<p>It is recommended to create a launch script e.g. <code>my_launch_script.sh</code> so that individual configs can be saved and conf files remain untouched.</p>
+
+<p>A play application can be run using <code>play ~run</code> ( the <code>~</code> does compile whenever the source is changed)</p>
+
+    </div>
+
 </div>
 
 
