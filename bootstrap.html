@@ -123,6 +123,39 @@ grunt
 grunt -w
 </pre>
 
+
+<h2>Test with <a href="https://karma-runner.github.io/0.12/index.html">Karma</a></h2>
+
+<pre>
+# Install Karma:
+npm install karma --save-dev
+
+# Install plugins that your project needs:
+npm install karma-jasmine karma-chrome-launcher --save-dev
+
+## launch
+# go to right dir
+cd test/js
+# start karma
+karma start logo.conf.js
+</pre>
+
+<h2>Tk with <a href="http://gruntjs.com/">Grunt</a></h2>
+
+<pre>
+#install Grunt (only do once)  - http://gruntjs.com/getting-started
+sudo npm install -g grunt-cli
+
+# run "npm install" in the base directory (this command will install all packes listed in package.json) - to do only when repo is checked out and/or when new dependencies are added
+sudo npm install
+
+# run grunt: does the routine, e.g. minifiying, uglify, etc.
+grunt
+#runt "grunt w" for watching updated files
+grunt -w
+</pre>
+
+
 <h2>Difference between HTML and Bootstrap</h2>
 
 <ul>
