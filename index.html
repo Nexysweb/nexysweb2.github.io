@@ -269,7 +269,7 @@ $("form#contactForm").submit(function(){
     
     var datastr = $(this).serialize()
 
-    $.ajax('http://management.nexys.ch/contact', {
+    $.ajax('http://dataviz.nexys.ch/contact', {
         dataType: 'json',
         data: datastr,
         method: 'POST',
