@@ -1,0 +1,394 @@
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Tempy</title>
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">    
+    
+    
+
+<link rel="shortcut icon" href="/assets/icon/favicon.ico" type="image/x-icon">
+<link rel="icon" href="/assets/icon/favicon.ico" type="image/x-icon">
+
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,400italic,500,500italic,700,700italic,900,900italic,300italic,300' rel='stylesheet' type='text/css'> 
+    <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,700,300,100' rel='stylesheet' type='text/css'>
+
+
+	<link href="/assets/bower_components/bootstrap/dist/css/bootstrap.min.css"rel="stylesheet">
+<link href="/assets/bower_components/font-awesome/css/font-awesome.min.css"rel="stylesheet">
+<link href="/assets/bower_components/flexslider/flexslider.css"rel="stylesheet">
+<link href="/assets/bower_components/wow/css/libs/animate.css"rel="stylesheet">
+<link href="/assets/css/main.css"rel="stylesheet">
+
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <style>
+    .input-large[class="input-large"] {
+    width: auto;
+}
+    </style>
+
+</head> 
+
+<body class="home-page">   
+    
+
+   
+
+<style>
+.home-mobile{
+	margin-bottom: 6px;
+}
+
+.vision{
+	background-color: rgba(255,255,255,.7)
+}
+
+.pvision{
+	color: #ddd !important;
+}
+
+@media(min-width: 300px){
+	section{
+		min-height: 650px;
+	}
+}
+</style>
+
+	
+
+<!-- ******HEADER****** --> 
+<header id="header" class="header ">  
+    <div class="container">       
+        <h1 class="logo">
+            <a href="/"><span class="text">Tempy</span></a>
+        </h1><!--//logo-->
+        <nav class="main-nav navbar-right" role="navigation">
+            <div class="navbar-header">
+                <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button><!--//nav-toggle-->
+            </div><!--//navbar-header-->
+            <div id="navbar-collapse" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li class="nav-item"><a href="/login">User Login</a></li>
+                    <li class="nav-item"><a href="/company/login">Recruiter Login</a></li>
+                    <li class="nav-item nav-item-cta last"><a class="btn btn-cta btn-cta-secondary" href="/company/profile">List your job</a></li>
+                </ul><!--//nav-->
+            </div><!--//navabr-collapse-->
+        </nav><!--//main-nav-->                     
+    </div><!--//container-->
+</header><!--//header-->
+
+
+<div class="bg-slider-wrapper">
+	<div class="flexslider bg-slider">
+		<ul class="slides">
+			<li class="slide slide-1"></li>
+			<li class="slide slide-2"></li>
+			<li class="slide slide-3"></li>
+		</ul>
+	</div>
+</div><!--//bg-slider-wrapper-->  
+      
+    
+    
+    <section ng-app="myApp" class="promo section section-on-bg">
+        <div class="container text-center">                
+            <h2 class="title">Find Exciting Part-Time Jobs That Suit You!</h2>
+            <p class="intro">Part-time jobs for those who think big and demand flexibility</p>
+            
+            
+  <form id="normalSearchForm" ng-controller="searchCtrl" method="GET" action="/search" class="input-group input-group-lg">
+  <input type="text" class="form-control" placeholder="Where do you want to work?" name="work"
+		ng-model="location"
+		ng-options="icon as icon.label for icon in icons"
+		bs-typeahead
+	/>
+  <span class="input-group-btn" style="width:0px;"></span>
+  <input type="text" class="form-control" placeholder="Start date?"  style="margin-left:-2px" name="start" 
+  		bs-datepicker
+		data-date-format="dd.MM.yyyy"
+		data-autoclose ="true"
+		ng-model="start"
+	/>
+  <span class="input-group-btn" style="width:0px;"></span>
+	<input 
+		type="text"
+		class="form-control"
+		placeholder="End date?"
+		style="margin-left:-2px"
+		name="end"
+		bs-datepicker
+		data-date-format="dd.MM.yyyy"
+		data-autoclose ="true"
+		ng-model="end"
+	/>
+  <span class="input-group-btn" style="width:0px;"></span>
+  <span class="input-group-btn">
+  <input class="btn btn-lg btn-cta-primary" type="submit"  value="Search" style="margin-left:-2px" /></span>
+  </form>
+
+
+<form id="mobileSearchForm">
+<input type="text" ng-controller="searchCtrl" class="form-control input-lg home-mobile" placeholder="Where do you want to work?" name="work" ng-model="location"
+ng-options="icon as icon.label for icon in icons"
+bs-typeahead>
+<input type="text" class="form-control input-lg home-mobile"
+placeholder="Start date?"
+bs-datepicker
+data-date-format="dd.MM.yyyy"
+data-autoclose ="true"
+ng-model="start"
+>
+<input type="text" class="form-control input-lg home-mobile"
+placeholder="End date?"
+name="end"
+bs-datepicker
+data-date-format="dd.MM.yyyy"
+data-autoclose ="true"
+ng-model="end"
+>
+<input class="btn btn-lg btn-cta-primary" type="submit" value="Search">
+</form>
+
+ 
+
+  <br>
+  <p><a class="btn btn-cta btn-cta-secondary page-scroll" href="#getStarted">How it works?</a></p>  
+
+
+
+
+</div>
+            
+            
+        </div><!--//container-->
+    </section><!--//promo-->
+    
+    <div  id="getStarted" class="sections-wrapper">   
+     
+        <!-- ******Why Section****** -->
+        <section class="steps section">
+        <div class="container">
+            <h2 class="title text-center wow bounceInDown">How it works?</h2>
+            <div class="row">
+				
+<div class="step text-center col-md-4 col-sm-4 col-xs-12 wow fadeInLeft" data-wow-delay="0.2s">
+	<h3 class="title">
+		<span class="number"> <span class="fa fa-binoculars"></span>
+</span><br />
+		<span class="text">Explore Jobs</span>
+	</h3>
+	<p>
+				Be adventurous. Search for jobs according to where you want to be and where you want to go, whether in fashion, retail or finance.
+				</p>
+</div><!--//step-->	
+
+				
+<div class="step text-center col-md-4 col-sm-4 col-xs-12 wow fadeInUp" data-wow-delay="0.2s">
+	<h3 class="title">
+		<span class="number"> <span class="fa fa-share-alt"></span>
+</span><br />
+		<span class="text">Show Interest</span>
+	</h3>
+	<p>
+				Connect with employers by submitting your interest and get a guaranteed response within 24 hours.
+				</p>
+</div><!--//step-->	
+
+				
+<div class="step text-center col-md-4 col-sm-4 col-xs-12 wow fadeInRight" data-wow-delay="0.2s">
+	<h3 class="title">
+		<span class="number"> <span class="fa fa-gbp"></span>
+</span><br />
+		<span class="text">Play Hard? Work Hard!</span>
+	</h3>
+	<p>
+				Feel in control and work in a job that suits your needs.
+				</p>
+</div><!--//step-->	
+
+            </div><!--//row-->
+            
+            <div class="text-center"><a class="btn btn-cta btn-cta-primary" href="#">Get Started - It's Free</a></div>
+            
+        </div><!--//container-->        
+    </section><!--//steps-->
+
+
+
+
+    <section class="section why">
+            <div class="container">
+            	<div class="wow bounceInDown" data-wow-delay="0.4s">
+                <h2 class="title text-center">Our Vision</h2>
+                <p class="intro text-center pvision">Set your work schedule around you</p>
+                </div>
+                <div class="row item wow bounceInUp" data-wow-delay="0.4s">
+                    <div class="col-md-12">
+                        
+                            <p class="text-center well vision">We believe in a freer, flexible and more fluid job market. Where you can easily find jobs where you want to be and in line with what you want to do. Companies can find talented and enthusiastic people to fill their jobs without you having to give up the other dreams you want to pursue.</p>
+
+                       
+                                            
+                    </div><!--//content-->
+                    
+                </div><!--//item--> 
+               
+            </div><!--//container-->
+        </section><!--//why--> 
+
+
+        
+        
+    </div><!--//section-wrapper-->
+
+
+
+
+  <!-- ******FOOTER****** --> 
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="container">
+                
+                <div class="row">
+                    
+                    <div class="footer-col download col-md-6 col-sm-12 col-xs-12">
+                        <div class="footer-col-inner">
+                            <ul class="social list-inline">
+                                <li><a href="http://www.Tempyapp.co.uk" target="_blank"><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                                <li><a href="#"><i class="fa fa-instagram"></i></a></li>        
+                                <li class="row-end"><a href="#"><i class="fa fa-rss"></i></a></li>             
+                            </ul>
+                            
+                        </div><!--//footer-col-inner-->
+                    </div><!--//download-->
+                    
+                    <div class="footer-col contact col-md-6 col-sm-12 col-xs-12">
+                        <div class="footer-col-inner">
+                            <h3 class="title">Contact us</h3>                          
+                            <p class="adr clearfix">
+                                <i class="fa fa-map-marker pull-left"></i>        
+                                <span class="adr-group pull-left">       
+                                    <span class="street-address">Tempy Ltd.</span><br>
+                                    <span class="region">Regent st</span><br>
+                                    <span class="postal-code">London</span><br>
+                                    <span class="country-name">UK</span>
+                                </span>
+                            </p>
+                            <p class="tel"><i class="fa fa-phone"></i>012 345 67 89</p>
+                            <p class="email"><i class="fa fa-envelope-o"></i><a href="#">enquires@tempy.com</a></p> 
+                                                  
+                        </div><!--//footer-col-inner-->
+                    </div><!--//contact-->
+                </div>
+            </div><!--//container-->
+        </div><!--//footer-content-->
+        <div class="bottom-bar">
+            <div class="container">
+                <small class="copyright">Copyright &copy; 2015 <a href="http://nexys.co.uk" target="_blank">Nexys</a></small>                
+            </div><!--//container-->
+        </div><!--//bottom-bar-->
+    </footer><!--//footer-->
+    
+    
+ 
+    <!-- Javascript -->
+    <script type="text/javascript"src="/assets/bower_components/jquery/dist/jquery.min.js"charset="utf-8"></script>
+<script type="text/javascript"src="/assets/bower_components/bootstrap/dist/js/bootstrap.min.js"charset="utf-8"></script>
+<script type="text/javascript"src="/assets/bower_components/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js"charset="utf-8"></script>
+<script type="text/javascript"src="/assets/bower_components/flexslider/jquery.flexslider-min.js"charset="utf-8"></script>
+<script type="text/javascript"src="/assets/bower_components/jquery-easing/jquery.easing.min.js"charset="utf-8"></script>
+<script type="text/javascript"src="/assets/js/main.js"charset="utf-8"></script>
+
+
+	<script>
+	$(function() {
+		$('a.page-scroll').bind('click', function(event) {
+			var $anchor = $(this);
+			$('html, body').stop().animate({
+				scrollTop: $($anchor.attr('href')).offset().top-120
+			}, 1500, 'easeInOutExpo');
+			event.preventDefault();
+		});
+	});
+	</script>
+
+	 
+
+
+<script 
+	type="text/javascript"
+	src="/assets/bower_components/angular/angular.min.js"
+	charset="utf-8"
+>
+</script>
+
+<script 
+	type="text/javascript"
+	src="/assets/bower_components/angular-strap/dist/angular-strap.min.js"
+	charset="utf-8"
+>
+</script>
+
+<script 
+	type="text/javascript"
+	src="/assets/bower_components/angular-strap/dist/angular-strap.tpl.min.js"
+	charset="utf-8"
+>
+</script>
+
+
+<script 
+	type="text/javascript"
+	src="/assets/bower_components/wow/dist/wow.min.js"
+	charset="utf-8"
+>
+</script>
+
+
+<script>
+// init WOW (animate.css is also a dependency)
+new WOW().init();
+
+
+var app = angular.module('myApp', ['mgcrea.ngStrap']);
+
+app.controller('searchCtrl',['$scope', function($scope, guardRailService) {
+
+	$scope.selectedIcon = "";
+
+$scope.icons =[{value: "Marylebone", label: "Marylebone"},{value: "Shoreditch", label: "Shoreditch"},{value: "Soho", label: "Soho"},{value: "Southwark", label: "Southwark"},{value: "South Kensington", label: "South Kensington"},{value: "Sloane Square", label: "Sloane Square"}]
+ 
+
+}])
+
+
+</script>
+
+    
+    
+            
+</body>
+</html> 
