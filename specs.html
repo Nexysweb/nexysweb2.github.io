@@ -67,7 +67,7 @@ footer {
 <h1>Specifications</h1>
 <p>Welcome to the specifications website. Feel free to contribute.</p>
 
-<p><a href="https://github.com/jboissard/jboissard.github.io" class="btn btn-info">GitHub <i class="fa fa-github"></i></a>
+<p><a href="https://github.com/Nexysweb/nexysweb.github.io" class="btn btn-info">GitHub <i class="fa fa-github"></i></a>
 
 </div>
 
@@ -120,23 +120,135 @@ footer {
 <li ng-repeat="item in values | filter:{type_id: 4}">{{item.description}}</li>
 </ul>
 
+
+<h1>Get Started with a Play Application</h1>
+
+
+<h2>
+<a id="user-content-database-schemes" class="anchor" href="#database-schemes" aria-hidden="true"><span class="octicon octicon-link"></span></a>Database schemes</h2>
+
+<p>The scheme is saved in
+<code>/conf/evolution/default/schema.sql</code></p>
+
+<p>new additions should be added a new file in the same repo e.g. <code>/conf/evolutions/default/JB.sql</code>.</p>
+
+<p><strong>DB updates are performed manually (no <strong>evolution</strong> enabled)</strong></p>
+
+<h2>
+<a id="user-content-assets" class="anchor" href="#assets" aria-hidden="true"><span class="octicon octicon-link"></span></a>Assets</h2>
+
+<p>asset files (not compiled) are in <code>/public</code> and can be accessed via <code>/assets/</code></p>
+
+<p>LESS files are in <code>/app/assets</code> and <strong>overwrite</strong> files that are in <code>/public</code>.</p>
+
+<h3>
+<a id="user-content-js" class="anchor" href="#js" aria-hidden="true"><span class="octicon octicon-link"></span></a>JS</h3>
+
+<p>Bower is preferred when it comes to use Library and files are saved in <code>/public/bower_components</code></p>
+
+<h2>
+<a id="user-content-config" class="anchor" href="#config" aria-hidden="true"><span class="octicon octicon-link"></span></a>Config</h2>
+
+<h3>
+<a id="user-content-front-end" class="anchor" href="#front-end" aria-hidden="true"><span class="octicon octicon-link"></span></a>Front End</h3>
+
+<p>AngularJS: Different versions of angular are used ... The version used in bower is to be preferred.
+Bootstrap: the file in from bower is to be preferred.
+Template system Twirl.</p>
+
+<p>Whenever possible (99% of the cases) routes are referenced dynamically with the help of @routes.MyCtrl.myMethod(). The list of routes are in <code>conf/routes</code>.</p>
+
+<h3>
+<a id="user-content-backend" class="anchor" href="#backend" aria-hidden="true"><span class="octicon octicon-link"></span></a>Backend</h3>
+
+<p>The framework is Play 2.1.3 for Scala.</p>
+
+<h3>
+<a id="user-content-launch-script" class="anchor" href="#launch-script" aria-hidden="true"><span class="octicon octicon-link"></span></a>Launch script</h3>
+
+<p>It is recommended to create a launch script e.g. <code>my_launch_script.sh</code> so that individual configs can be saved and conf files remain untouched.</p>
+
+<p>A play application can be run using <code>play ~run</code> ( the <code>~</code> does compile whenever the source is changed)</p>
+
+    </div>
+
 </div>
 
 
 
 <div id="container" ng-controller="standardVarCtrl" ng-show="nav==3">
+
+<h2></h2>
+
+<h2>Standard Variables</h2>
+<p>This is now maintained in a separate file, ready to use</p>
+
+<code>https://github.com/Nexysweb/play-helpers/blob/master/Generic.scala</code>
+</div>
+
+<div id="container" ng-controller="qualityAssuranceCtrl" ng-show="nav==4">
+
+
+<h2>Quality Assurance</h2>
+<p>Some extra details that change a product from being good to great.</p>
 <table class="table table-striped table-hover">
 <tr>
-<th>Name</th><th>Type</th><th>Use</th>
+<th>Name</th><th>Resource</th>
 </tr>
 
 <tr ng-repeat="item in values">
 <td>{{item.name}}</td>
-<td>{{item.type}}</td>
-<td>{{item.use}}</td>
+<td>{{item.resource}}</td>
 </tr>
 
 </table>
+</div>
+
+<div id="container" ng-controller="scalaCtrl" ng-show="nav==5">
+
+
+<h2>Main Frameworks</h2>
+
+<table class="table table-striped">
+<tr ng-repeat="f in frameworks">
+	<td>{{f.name}}</td>
+	<td><a ng-href="{{f.href}}">{{f.href}}</a></td>
+</tr>
+</table>
+
+<h2>Built with Scala</h2>
+<p>Here is a non exhaustive list of companies and websites that use Scala.</p>
+<table class="table table-striped table-hover">
+<tr>
+<th>Name</th><th>Framework</th><th>OpenSource</th>
+</tr>
+
+<tr ng-repeat="item in values">
+<td>{{item.name}} <a ng-show="{{item.href}}" ng-href="{{item.href}}"><span class="glyphicon glyphicon-link"></span></a></td>
+<td>
+	<span ng-repeat="f in item.framework">
+		<a target="_blank" ng-href="{{f.l}}">
+			<span ng-repeat="e in frameworks | filter:{id: f.f}:true" class="label label-default">
+				{{e.name}}
+			</span>
+		</a>
+	</span>
+</td>
+<td><span ng-class="{'glyphicon glyphicon-ok': item.opensource, 'glyphicon glyphicon-remove': !item.opensource}"></span></td>
+</tr>
+
+</table>
+
+<h2>Some interesting articles</h2>
+
+<table class="table table-striped">
+<tr ng-repeat="l in links">
+	<td>{{l.name}}</td>
+	<td>{{l.journal}}</td>
+	<td><a ng-href="{{l.href}}" class="btn btn-default"><span class="glyphicon glyphicon-link"></span></a></td>
+</tr>
+</table>
+
 </div>
 
 <footer>
@@ -159,7 +271,9 @@ app.controller('mainCtrl', ['$scope', '$http', '$filter', function($scope, $http
 		{name: "Home", nav: 0},
 		{name: "Technical Stack", nav: 1},
 		{name: "Specifications", nav: 2},
-    {name: "Standard Variables", nav: 3},
+    	{name: "Standard Variables", nav: 3},
+    	{name: "Quality Assurance", nav: 4},
+    	{name: "Built with Scala", nav: 5},
 	]
 }])
 
@@ -173,7 +287,7 @@ $scope.values = [
 	{description: "When working with Anorm, table names are never stored in query, but in external variable. Ideally as a table variable in the associated object. This avoids running in big issues when changing table names etc.", type_id: 1},
 	{description: "Use functional style whenever possible; i.e. favor map over for-loops etc.", type_id: 1},
 	{description: "Use dynamic reference to link whenever possible; i.e. @routes...", type_id: 1},
-	{description: "Indentation: define a way of doing it", type_id: 1},
+	{description: "Indentation: code is indented properly with tabs", type_id: 1},
 	{description: "When definind a model, use a simple english with the first Letter Capitalized. The associated controller will have the same name with the suffix -Ctrl", type_id: 1},
 	{description: "Case class bear the same name as the class they are associated to. If there are more than one case class associated with the object, add a suffix, and make sure to document. case class do not have underscore.", type_id: 1},
 	{description: "All code is versioned - no exception", type_id: 4},
@@ -182,7 +296,7 @@ $scope.values = [
 {description: "Don't commit on master if code does not compile", type_id: 4},
 {description: "Never stop working without having pushed. If code does not compile, create a new branch", type_id: 4},
 {description: "CSS should always be in the header section. Not in the body", type_id: 3},
-{description: "It is ok to put JS in body but at the end of the body and if possible all code between ", type_id: 3}
+{description: "It is ok to put JS in body but at the end of the body and if possible all code between ", type_id: 3},
 ]
 
 
@@ -203,6 +317,95 @@ app.controller('standardVarCtrl', ['$scope', '$http', '$filter', function($scope
   $scope.values = [
 {name: "OptionSet", type: "case class", use : "to populate selects/whenever displaying a key and value object"}
 ]
+}])
+
+
+app.controller('qualityAssuranceCtrl', ['$scope', '$http', '$filter', function($scope, $http, $filter) {
+ 
+$scope.values = [
+	{name: "favicon generated", resource: "tags.icon"},
+	{name: "no script", resource: "tags.noscript"},
+	{name: "background pattern", resource: "subtlepatterns.com"},
+	{name: "license", resource: "open source: choosealicense.com, commercial: http://www.binpress.com/license/generator"},
+	{name: "minify javascript", resource:""},
+	{name: "access with and without `www`"},
+	{name: "can be accessed from any subdomain"},
+	{name: "page for 404 and 500 errors"}
+]
+}])
+
+app.controller('scalaCtrl', ['$scope', '$http', '$filter', function($scope, $http, $filter) {
+ 
+$scope.frameworks = [
+	{id: 1, name: "Play! Framework", href: "http://playframework.com"},
+	{id: 2, name: "Scalatra", href: "http://scalatra.org"},
+	{id: 3, name: "Lift", href: "http://liftweb.net"},
+	{id: 4, name: "Scala language", href: "http://scala-lang.org"}
+]
+
+
+$scope.values = [
+	{name: "Linkedin", framework: [{f: 1},{f: 2},{f: 4, l: "http://www.scala-lang.org/old/node/1658"}]},
+	{name: "Coursera", framework: [{f: 1, l: "https://tech.coursera.org/blog/2014/02/18/why-we-love-scala-at-coursera/"}]},
+	{name: "Twitter", framework: [{f: 4, l: "http://www.scala-lang.org/old/node/1658"}]},
+	{name: "The Guardian", framework: [{f: 1},{f: 2}, {f: 4, l: "http://www.scala-lang.org/old/node/1658"}]},
+	{name: "UBS", framework: [{f: 4, l:"http://www.scala-lang.org/old/node/10923"}]},
+	{name: "Credit Suisse", framework: [{f: 4, l:"http://www.scala-lang.org/old/node/10923"}]},
+	{name: "HSBC", framework: [{f: 4, l:"http://www.scala-lang.org/old/node/10923"}]},
+	{name: "Trafigura", framework: [{f: 4, l:"http://www.scala-lang.org/old/node/10923"}]},
+	{name: "New York Times", framework: [{f: 4, l:"http://www.techrepublic.com/article/how-the-new-york-times-uses-reactive-programming-tools-like-scala-to-scale/"}]},
+	{name: "McLaren applied technologies", framework: [{f: 1},{f: 2}]},
+	{name: "Property Partner", framework: [{f: 1}]},
+	{name: "Klout", framework: [{f: 1, l: "https://www.playframework.com/"}]},
+	{name: "Gily", framework: [{f: 1, l: "https://www.playframework.com/"}]},
+	{name: "ZapTravel", framework: [{f: 1, l: "https://www.playframework.com/"}]},
+	{name: "Verizon", framework: [{f: 1}]},
+	{name: "Typesafe", framework: [{f: 1, l:"http://zengularity.com/projects"}]},
+	{name: "Morgan Stanley", framework: [{f: 4, l:"http://www.scala-lang.org/old/node/10923"}]},
+	{name: "Foursquare", framework: [{f: 3}, {f: 4, l: "http://www.scala-lang.org/old/node/1658"}]},
+	{name: "Walmart", framework: [{f: 1, l:"http://www.nurun.com/en/news/nurun-launches-redesigned-transactional-platform-with-walmart-canada/"}]},
+	{name: "BBC", framework: [{f: 2, l: "http://scalatra.org/community/built-with.html"}]},
+	{name: "Box.com", framework: [{f: 2, l: "http://scalatra.org/community/built-with.html"}]},
+	{name: "ChaCha", framework: [{f: 2, l: "http://scalatra.org/community/built-with.html"}]},
+	{name: "Chronotrack", framework: [{f: 2, l: "http://scalatra.org/community/built-with.html"}]},
+	{name: "IGN", framework: [{f: 2, l: "http://scalatra.org/community/built-with.html"}]},
+	{name: "Janrain", framework: [{f: 2, l: "http://scalatra.org/community/built-with.html"}]},
+	{name: "Learndot", framework: [{f: 2, l: "http://scalatra.org/community/built-with.html"}]},
+	{name: "Netflix", framework: [{f: 2, l: "http://scalatra.org/community/built-with.html"}]},
+	{name: "TrademarkNow", framework: [{f: 2, l: "http://scalatra.org/community/built-with.html"}]},
+	{name: "Fink", framework: [{f: 2, l: "http://scalatra.org/community/built-with.html"}], opensource: true},
+	{name: "Newsrdr", framework: [{f: 2, l: "http://scalatra.org/community/built-with.html"}], opensource: true},
+	{name: "Objectify", framework: [{f: 2, l: "http://scalatra.org/community/built-with.html"}], opensource: true},
+	{name: "Scalatra Toys", framework: [{f: 2, l: "http://scalatra.org/community/built-with.html"}], opensource: true},
+	{name: "Skinny Framework", framework: [{f: 2, l: "http://scalatra.org/community/built-with.html"}], opensource: true},
+	{name: "Electricite de France Trading", framework: [{f: 4, l: "http://www.scala-lang.org/old/node/1658"}]},
+	{name: "Novell", framework: [{f: 4, l: "http://www.scala-lang.org/old/node/1658"}]},
+	{name: "Xebia", href: "http://www.xebia.com/", framework: [{f: 4, l: "http://www.scala-lang.org/old/node/1658"}]},
+	{name: "Xerox", href: "http://www.xmpie.com/" , framework: [{f: 4, l: "http://www.scala-lang.org/old/node/1658"}]},
+	{name: "Sony", href: "https://www.it-solutions.siemens.com/b2b/it/en/global/press/press-releases/2009/Pages/enterprise-social-messaging-experiment.aspx" , framework: [{f: 4, l: "http://www.scala-lang.org/old/node/1658"}]},
+	{name: "Siemens" , framework: [{f: 4, l: "http://www.scala-lang.org/old/node/1658"}]},
+	{name: "Thatcham" , framework: [{f: 4, l: "http://www.scala-lang.org/old/node/1658"}]},
+	{name: "OPOWER" , framework: [{f: 4, l: "http://www.scala-lang.org/old/node/1658"}]},
+	{name: "GridGain" , framework: [{f: 4, l: "http://www.scala-lang.org/old/node/1658"}]},
+	{name: "AppJet" , framework: [{f: 4, l: "http://www.scala-lang.org/old/node/1658"}]},
+	{name: "Reaktor" , framework: [{f: 4, l: "http://www.scala-lang.org/old/node/1658"}]},
+
+
+]
+
+$scope.links = [
+{name: "Smart Java developers need to skill-up in Scala", journal: "eFinancial Career", href: "http://news.efinancialcareers.com/uk-en/100268/smart-java-developers-need-to-skill-up-in-scala/"},
+{name: "What Do You Think About The Scala Programming Language? Answer by Mathew de Detrich, Senior Software Developer at Monetise Pty Ltd, on Quora" , journal: "Forbes/Quora", href: "http://www.forbes.com/sites/quora/2014/07/10/what-do-you-think-about-the-scala-programming-language/"},
+{name: "Functional programming's high efficiency comes at a cost", href: "http://www.infoworld.com/article/2843393/application-development/functional-programming-tradeoffs-efficiency-learning-curve.html"},
+{name: "9 cutting-edge programming languages worth learning now", journal: "infoWorld", href: "http://www.infoworld.com/article/2840235/application-development/9-cutting-edge-programming-languages-worth-learning-next.html"},
+{name: "A Large Scale Study of Programming Languages and Code Quality in Github", journal: "UC Davis", href: "http://macbeth.cs.ucdavis.edu/lang_study.pdf"},
+{name: "How The New York Times uses reactive programming tools like Scala to scale", journal: "TechRepublic", href: "http://www.techrepublic.com/article/how-the-new-york-times-uses-reactive-programming-tools-like-scala-to-scale/"},
+{name: "Java And Scala: Former Competitors May Be BFFs Before Long (Martin Odersky)", journal: "ReadWrite", href: "http://readwrite.com/2014/02/20/java-8-scala-competitors-bffs-martin-odersky"},
+{name: "The future of programming is Scala", journal: "EPFL", href: "http://actu.epfl.ch/news/the-future-of-programming-is-scala-2/"},
+{name: "Who is using Scala?", journal: "Alvin Alexander Blog", href: "http://alvinalexander.com/scala/whos-using-scala-akka-play-framework"},
+{name: "Making online education accessible with Typesafe", journal: "Typesafe", href: "http://downloads.typesafe.com/website/casestudies/Coursera-Case-Study.pdf?_ga=1.87461264.920425998.1407335765"}
+]
+
 }])
 
 
